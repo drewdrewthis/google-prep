@@ -1,0 +1,6 @@
+/* Master Styles */
+footer {
+	display: absolute;
+	bottom:0;
+	text-align: center;
+}

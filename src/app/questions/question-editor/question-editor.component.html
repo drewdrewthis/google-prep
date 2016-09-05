@@ -1,0 +1,33 @@
+<form>
+  <div class="form-group">
+    <label for="question">Question</label>
+    <input type="text" class="form-control" id="question"
+           required
+           [(ngModel)]="question.question" name="question">
+  </div>
+  <div class="answers form-group">
+    <label>Answers</label>
+    <ul>
+      <li *ngFor="let ans of answerArray; let i = index">
+        <span class="answer-number">{{i + 1}}</span><input type="text" class="form-control answer-input" id="answer-{{i}}"
+           [(ngModel)]="question.answers[i]" name="answer-{{i}}">
+      </li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <label for="correct_answer">Correct Answer</label>
+    <input type="number" 
+           class="form-control" 
+           id="correct_answer"
+           required
+           [(ngModel)]="question.correct_answer" 
+           name="correct_answer"
+           min="1" max="{{answerArray.length}}" value="1">
+  </div>
+  <button type="button" 
+          class="btn btn-default" 
+          (click)="addAnswers();">Add Answer</button>
+  <button type="submit" 
+          class="btn btn-default" 
+          (click)="add(question);">Submit</button>
+</form>

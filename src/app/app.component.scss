@@ -1,0 +1,29 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+#main {
+	height: 100%;	
+	position: relative;
+	&.sidebar-open {
+		.main-container {
+		position: absolute;
+		width: calc(100% - 200px);
+		}
+		app-sidebar {
+			position: absolute;
+			right: 0;
+			height: 100%;
+			width: 200px;
+		}
+	}
+	.main-container {
+		padding: 30px;
+	}
+}

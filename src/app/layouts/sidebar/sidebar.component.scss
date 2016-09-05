@@ -1,0 +1,21 @@
+#sidebar {
+	box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+	.container {
+		padding: 20px;
+		color: white;
+		background: #2a5076;
+		height: 100%;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		a {
+			color: white;
+		}
+	}
+	footer {
+		border: 4px solid #2a5076;
+		position: absolute;
+		bottom: 0;
+	}
+}
