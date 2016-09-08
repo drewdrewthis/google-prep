@@ -22,6 +22,7 @@ export class QuestionsService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	update(question: Question): Promise<Question> {
+	  getQuestions().len +1
 	  question.id = 5;
 	  const url = `${this.questionsUrl}/${question.id}`;
 	  return this.http

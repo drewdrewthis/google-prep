@@ -15,6 +15,7 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { QuestionComponent }  from './questions/question.component';
 import { QuestionsService }  from './questions/questions.service';
 import { QuestionEditorComponent } from './questions/question-editor/question-editor.component';
+import { QuestionNavComponent } from './questions/question-nav/question-nav.component';
 
 @NgModule({
   imports:      [ 
@@ -29,7 +30,8 @@ import { QuestionEditorComponent } from './questions/question-editor/question-ed
     SidebarComponent,
   	DashboardComponent,
   	QuestionComponent,
-    QuestionEditorComponent
+    QuestionEditorComponent,
+    QuestionNavComponent
   ],
   providers: [
     QuestionsService

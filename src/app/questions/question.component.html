@@ -1,12 +1,6 @@
 <div *ngIf="question">
 	<header>
-		<nav>
-			<ul class="question_nav">
-				<li *ngFor="let q of questions">
-					<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="question_number">{{q.id}}</a>
-				</li>
-			</ul>
-		</nav>
+		<app-question-nav></app-question-nav>
 		<h2>Question {{question.id}}</h2>
 		<h3>{{question.question}}</h3>
 	</header>
