@@ -22,7 +22,7 @@ export class QuestionNavComponent implements OnInit {
   	this.getQuestions();
   }
 
-  getQuestions(): Promise<Question> {
+  getQuestions(): Promise<Question[]> {
     return this.questionsService.getQuestions()
                 .then(questions => this.questions = questions)
                 //.then(questions => questions.find(question => question.id === id));

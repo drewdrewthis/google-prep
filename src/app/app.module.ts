@@ -22,7 +22,7 @@ import { QuestionNavComponent } from './questions/question-nav/question-nav.comp
   	BrowserModule,
   	FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    //InMemoryWebApiModule.forRoot(InMemoryDataService),
   	routing
   ],
   declarations: [ 
