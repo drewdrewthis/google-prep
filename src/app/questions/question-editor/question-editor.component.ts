@@ -17,7 +17,7 @@ export class QuestionEditorComponent implements OnInit {
   question: Question = {
     id: null,
     answers: [],
-    question: "",
+    title: "",
     correct_answer: 0
   };
 
@@ -36,10 +36,10 @@ export class QuestionEditorComponent implements OnInit {
   }
 
   add(question: Question): void {
-    if (!question.question) { return; }
+    if (!question.title) { return; }
    // question.question = question.question.trim();
    console.log(question);
-    this.questionsService.update(question)
+    this.questionsService.create(question)
       /*.then(question => {
         this.questions.push(question);
       });*/

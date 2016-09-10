@@ -16,6 +16,7 @@ export class QuestionComponent implements OnInit {
 	componentName = 'QuestionComponent';
 
   question: Question;
+  answers: string[];
 
   constructor(
     private questionsService: QuestionsService,
@@ -23,25 +24,22 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var self = this;
     this.route.params.forEach((params: Params) => {
       let id = +params['id'];
       this.getQuestion(id)
           .then(question => this.question = question);
+          /*.then(function(question) {
+            return self.question = question;
+            //self.answers = self.question.answers;
+          });*/
     });
   }
 
   getQuestion(id: number): Promise<Question> {
     return this.questionsService.getQuestions()
-                //.then(questions => this.questions = questions)
                 .then(questions => questions.find(question => question["id"] === id));
-                /*.then(function(questions) {
-                  var result = null;
-                  result = questions.find(function(question) {
-                    return question.id === 1;
-                  })
-                  console.log(result);
-                  return result;
-                });*/
+
   }
 
 }

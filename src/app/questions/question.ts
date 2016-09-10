@@ -1,6 +1,6 @@
 export class Question {
   id: number;
-  question: string;
+  title: string;
   answers: Array<string>;
   correct_answer: number;
 }

@@ -2,12 +2,12 @@
 	<header>
 		<app-question-nav></app-question-nav>
 		<h2>Question {{question.id}}</h2>
-		<h3>{{question.question}}</h3>
+		<h3>{{question.title}}</h3>
 	</header>
 	<div>
 		<form>
 			<div *ngFor="let answer of question.answers">
-				<input type="radio" name="answer" value={{answer}}>{{answer}}
+				<input type="radio" name="answer" value={{answer.title}}>{{answer.title}}
 			</div>
 		</form>
 		<button class="btn btn-default">Submit</button>

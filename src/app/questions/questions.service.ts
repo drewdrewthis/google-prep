@@ -18,11 +18,11 @@ export class QuestionsService {
 	getQuestions(): Promise<Question[]> {
 		return this.http.get(this.questionsUrl)
 				   .toPromise()
-				   //.then(response => console.log(response))
-				   //.then(response => response.json().data as Question[])
 				   .then(function(response) {
-				   		//console.log(JSON.parse(response._body));
-				   		return JSON.parse(response._body) as Question[];
+				   		var json = (response as any)._body; // As any isn't the best way to handle this.
+				   		json = JSON.parse(json);
+				   		console.log(json);
+				   		return json as Question[];
 				   });
 				   //.catch(this.handleError);
 	}
@@ -43,6 +43,7 @@ export class QuestionsService {
 	  const url = this.questionsUrl;
 	  return this.http
 	    .post(url, JSON.stringify(question), {headers: this.headers})
+	    //.post(url, 'JSON.stringify(question)', {headers: this.headers})
 	    .toPromise()
 	    .then(response => response.json().data as Question)
 	    //ToDo: .catch(this.handleError);
