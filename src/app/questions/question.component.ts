@@ -33,15 +33,15 @@ export class QuestionComponent implements OnInit {
   getQuestion(id: number): Promise<Question> {
     return this.questionsService.getQuestions()
                 //.then(questions => this.questions = questions)
-                //.then(questions => questions.find(question => question["id"] === id));
-                .then(function(questions) {
+                .then(questions => questions.find(question => question["id"] === id));
+                /*.then(function(questions) {
                   var result = null;
                   result = questions.find(function(question) {
                     return question.id === 1;
                   })
                   console.log(result);
                   return result;
-                });
+                });*/
   }
 
 }
