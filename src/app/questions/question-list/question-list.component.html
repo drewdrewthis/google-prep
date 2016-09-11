@@ -1,0 +1,8 @@
+<header>
+	<h1>Full Question List</h1>
+</header><!-- /header -->
+<ol *ngIf="questions">
+	<li *ngFor="let q of questions">
+		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">{{q.title}}</a>
+	</li>
+</ol>

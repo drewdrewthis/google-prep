@@ -13,6 +13,7 @@ import { AppComponent }       from './app.component';
 import { SidebarComponent }   from './layouts/sidebar/sidebar.component';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { QuestionComponent }  from './questions/question.component';
+import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionsService }  from './questions/questions.service';
 import { QuestionEditorComponent } from './questions/question-editor/question-editor.component';
 import { QuestionNavComponent } from './questions/question-nav/question-nav.component';
@@ -31,7 +32,8 @@ import { QuestionNavComponent } from './questions/question-nav/question-nav.comp
   	DashboardComponent,
   	QuestionComponent,
     QuestionEditorComponent,
-    QuestionNavComponent
+    QuestionNavComponent,
+    QuestionListComponent,
   ],
   providers: [
     QuestionsService

@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { QuestionComponent } from './questions/question.component';
+import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionEditorComponent } from './questions/question-editor/question-editor.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+
 
 
 const appRoutes: Routes = [
@@ -25,6 +27,11 @@ const appRoutes: Routes = [
   		path: 'question-editor',
   		component: QuestionEditorComponent
 	},
+	{
+  		path: 'questions',
+  		component: QuestionListComponent
+	}
+	
 	// Catch-all for default URLs
 	/*
 	{

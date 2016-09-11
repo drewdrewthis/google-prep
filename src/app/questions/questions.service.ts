@@ -39,13 +39,21 @@ export class QuestionsService {
 	    //ToDo: .catch(this.handleError);
 	}
 
-	create(question: Question): Promise<Question> {
+	create(question: Question): Promise<number> {
 	  const url = this.questionsUrl;
 	  return this.http
 	    .post(url, JSON.stringify(question), {headers: this.headers})
 	    //.post(url, 'JSON.stringify(question)', {headers: this.headers})
 	    .toPromise()
-	    .then(response => response.json().data as Question)
+	    .then(function(response) {
+
+	    	var question_id = response
+	    	console.log(response);
+
+	    	this.createNumbers(question_id);
+
+	    	return response as any;
+	    }); 
 	    //ToDo: .catch(this.handleError);
 	}
 }
