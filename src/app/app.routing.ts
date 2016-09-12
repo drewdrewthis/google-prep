@@ -24,6 +24,10 @@ const appRoutes: Routes = [
   		component: QuestionComponent
 	},
 	{
+  		path: 'question-editor/:id',
+  		component: QuestionEditorComponent
+	},
+	{
   		path: 'question-editor',
   		component: QuestionEditorComponent
 	},

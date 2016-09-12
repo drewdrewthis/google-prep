@@ -25,11 +25,19 @@ export class QuestionEditorComponent implements OnInit {
   private answerArray: Array<string> = new Array(this.question.answers.length + 1);
 
   constructor(
-    private questionsService: QuestionsService) { 
+    private questionsService: QuestionsService,
+    private route: ActivatedRoute) { 
   }
 
   ngOnInit() {
-    
+    var self = this;
+    this.route.params.forEach((params: Params) => {
+      if(params['id']) {
+        let id = +params['id'];
+        this.getQuestion(id)
+            .then(question => this.question = question);
+      }
+    });
   }
 
   addAnswers(): void {
@@ -44,6 +52,12 @@ export class QuestionEditorComponent implements OnInit {
       /*.then(question => {
         this.questions.push(question);
       });*/
+  }
+
+  getQuestion(id: number): Promise<Question> {
+    return this.questionsService.getQuestions()
+                .then(questions => questions.find(question => question["id"] === id));
+
   }
 
 }
