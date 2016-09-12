@@ -26,4 +26,9 @@ export class QuestionListComponent implements OnInit {
   	                .then(questions => this.questions = questions);
   }
 
+  deleteQuestion(id: number) {
+    console.log(id);
+    this.questionsService.destroy(id);
+  } 
+
 }

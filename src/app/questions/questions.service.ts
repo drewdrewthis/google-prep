@@ -10,7 +10,7 @@ export class QuestionsService {
 
 	//rails s -p 3001
 
-	private questionsUrl = 'http://localhost:3001/questions';  // URL to web api
+	private questionsUrl = 'http://localhost:3001/questions/';  // URL to web api
 
 	constructor(private http:Http) { 
 	}
@@ -53,6 +53,19 @@ export class QuestionsService {
 	    	this.createNumbers(question_id);
 
 	    	return response as any;
+	    }); 
+	    //ToDo: .catch(this.handleError);
+	}
+
+	destroy(id: number): Promise<boolean> {
+	  const url = this.questionsUrl;
+	  return this.http
+	    .delete(url + id, {headers: this.headers})
+	    .toPromise()
+	    .then(function(response) {
+	    	var res = response as any;
+	    	console.log(res._body);
+	    	return res;
 	    }); 
 	    //ToDo: .catch(this.handleError);
 	}

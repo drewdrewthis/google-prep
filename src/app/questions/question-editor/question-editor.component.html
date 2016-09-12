@@ -9,8 +9,13 @@
     <label>Answers</label>
     <ul>
       <li *ngFor="let ans of answerArray; let i = index">
-        <span class="answer-number">{{i + 1}}</span><input type="text" class="form-control answer-input" id="answer-{{i}}"
-           [(ngModel)]="question.answers[i]" name="answer-{{i}}">
+        <span class="answer-number">{{i + 1}}</span>
+        <input type="text" 
+               class="form-control answer-input" 
+               id="answer-{{i}}"
+               [(ngModel)]="question.answers[i]" 
+               name="answer-{{i}}"
+               required>
       </li>
     </ul>
   </div>

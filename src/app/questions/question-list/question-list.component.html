@@ -3,6 +3,8 @@
 </header><!-- /header -->
 <ol *ngIf="questions">
 	<li *ngFor="let q of questions">
-		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">{{q.title}}</a>
+		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">{{q.title}} (ID: {{q.id}})</a>
+		<button type="button" 
+		        (click)="deleteQuestion(q.id);">Delete</button>
 	</li>
 </ol>
