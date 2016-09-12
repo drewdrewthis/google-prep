@@ -6,5 +6,12 @@
 		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">{{q.title}} (ID: {{q.id}})</a>
 		<button type="button" 
 		        (click)="deleteQuestion(q.id);">Delete</button>
+		<ol>
+			<li *ngFor="let a of q.answers">
+				{{a.title}} (ID: {{a.id}})
+				<button type="button" 
+				        (click)="deleteQuestion(q.id);">Delete</button>
+			</li>
+		</ol>
 	</li>
 </ol>
