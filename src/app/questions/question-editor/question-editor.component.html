@@ -7,13 +7,13 @@
   </div>
   <div class="answers form-group">
     <label>Answers</label>
-    <ul>
-      <li *ngFor="let ans of answerArray; let i = index">
+    <ul *ngIf="question.answers.length">
+      <li *ngFor="let ans of question.answers; let i = index">
         <span class="answer-number">{{i + 1}}</span>
         <input type="text" 
                class="form-control answer-input" 
                id="answer-{{i}}"
-               [(ngModel)]="question.answers[i]" 
+               [(ngModel)]="question.answers[i].title" 
                name="answer-{{i}}"
                required>
       </li>
@@ -27,12 +27,12 @@
            required
            [(ngModel)]="question.correct_answer" 
            name="correct_answer"
-           min="1" max="{{answerArray.length}}" value="1">
+           min="1" max="{{question.answers.length}}" value="1">
   </div>
   <button type="button" 
           class="btn btn-default" 
           (click)="addAnswers();">Add Answer</button>
   <button type="submit" 
           class="btn btn-default" 
-          (click)="add(question);">Submit</button>
+          (click)="save(question);">Save</button>
 </form>

@@ -30,7 +30,6 @@ export class QuestionsService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	update(question: Question): Promise<Question> {
-	  question.id = 5;
 	  const url = `${this.questionsUrl}/${question.id}`;
 	  return this.http
 	    .put(url, JSON.stringify(question), {headers: this.headers})
@@ -42,7 +41,7 @@ export class QuestionsService {
 	create(question: Question): Promise<number> {
 	  const url = this.questionsUrl;
 	  return this.http
-	    .post(url, JSON.stringify(question), {headers: this.headers})
+	    .post(url, question, {headers: this.headers})
 	    //.post(url, 'JSON.stringify(question)', {headers: this.headers})
 	    .toPromise()
 	    .then(function(response) {
