@@ -15,17 +15,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class QuestionEditorComponent implements OnInit {
 
   // Initialize new question
-  question: Question = {
-    id: null,
-    answers: [
-      {
-        id: null,
-        title: ""
-      }
-    ],
-    title: "",
-    correct_answer: 0
-  };
+  question: Question;
 
   //private answerArray: Array<string> = new Array(this.question.answers.length + 1);
 
@@ -54,9 +44,7 @@ export class QuestionEditorComponent implements OnInit {
   addAnswers(): void {
     let q = this.question;
     q.answers.length++;
-    let ans_len = q.answers.length; // Will be hoisted
-    q.answers[ans_len - 1] = {};
-    q.answers[ans_len - 1].title = "";
+    q.answers[q.answers.length - 1].title = "";
   }
 
   add(question: Question): void {
