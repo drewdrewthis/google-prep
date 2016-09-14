@@ -1,8 +1,24 @@
 .question-item {
-	border: 2px solid blue;
-	border-radius: 5px;
 	padding: 3px;
 	margin: 5px;
+	border: 2px solid transparent;
+	position: relative;
+	.controls {
+		position: absolute;
+		right: 3px;
+		top: 0;
+		.fa {
+			visibility: hidden;
+		}
+	}
+	&:hover {
+		border: 2px solid blue;
+		border-radius: 5px;
+		background: lightgrey;
+		.controls .fa {
+			visibility: visible;
+		}
+	}
 	&.dnd-sortable-drag {
 		background: lightgrey;
 		box-shadow: 0 0 5px black;
