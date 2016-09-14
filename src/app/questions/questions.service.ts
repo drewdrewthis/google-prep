@@ -41,15 +41,13 @@ export class QuestionsService {
 	create(question: Question): Promise<number> {
 	  const url = this.questionsUrl;
 	  return this.http
-	    .post(url, question, {headers: this.headers})
+	    .post(url, JSON.stringify(question), {headers: this.headers})
 	    //.post(url, 'JSON.stringify(question)', {headers: this.headers})
 	    .toPromise()
 	    .then(function(response) {
 
-	    	var question_id = response
+	    	var question_id = response;
 	    	console.log(response);
-
-	    	this.createNumbers(question_id);
 
 	    	return response as any;
 	    }); 

@@ -23,12 +23,16 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit() {
   	this.questionsService.getQuestions()
-  	                .then(questions => this.questions = questions);
+  	                .then(questions => this.questions = questions.sort(
+                        (a,b) => a.number - b.number
+                    ));
   }
 
   deleteQuestion(id: number) {
     console.log(id);
+    //Remove question from question list
+    this.questions = this.questions.filter(item => item.id != id); 
+    //Remove question from model
     this.questionsService.destroy(id);
   } 
-
 }

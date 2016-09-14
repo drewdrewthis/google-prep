@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../questions.service';
 import { Question } from '../question';
+import { Answer } from '../answer';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -19,32 +20,51 @@ export class QuestionEditorComponent implements OnInit {
 
   //private answerArray: Array<string> = new Array(this.question.answers.length + 1);
 
-  constructor(
+  constructor (
     private questionsService: QuestionsService,
     private route: ActivatedRoute) { 
   }
 
   ngOnInit() {
     var self = this;
-    this.route.params.forEach((params: Params) => {
+    self.route.params.forEach((params: Params) => {
+      
       if(params['id']) {
-        let id = +params['id'];
-        this.getQuestion(id)
-            .then(question => this.question = question);
+        let id = + params['id'];
+        self.getQuestion(id)
+            //.then(question => self.question = question);
+            .then(function(question) {
+              self.question = question
+              console.log(self.question);
+            })
+      }
+      else {
+        self.question = new Question;
+        self.question.title = "";
+        self.question.answers = new Array<Answer>();
+        self.question.answers[0] = new Answer;
+        self.question.answers[0].title = "";
+        console.log(self.question);
       }
     });
   }
 
   getQuestion(id: number): Promise<Question> {
+    var hotdogs = "yum";
     return this.questionsService.getQuestions()
-                .then(questions => questions.find(question => question["id"] === id));
-
+                //.then(questions => questions.find(question => question["id"] === id));
+                .then(function(questions) {
+                  
+                  //console.log(questions.find(question => question["id"] === id));
+                  return questions.find(question => question["id"] === id);
+                });
   }
 
   addAnswers(): void {
     let q = this.question;
     q.answers.length++;
-    q.answers[q.answers.length - 1].title = "";
+    //q.answers[q.answers.length - 1].title = "";
+    console.log(q);
   }
 
   add(question: Question): void {

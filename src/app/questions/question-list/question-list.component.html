@@ -3,14 +3,18 @@
 </header><!-- /header -->
 <ol *ngIf="questions">
 	<li *ngFor="let q of questions">
-		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">{{q.title}} (ID: {{q.id}})</a>
-		<button type="button" 
-		        (click)="deleteQuestion(q.id);">Delete</button>
+		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">#{{q.number}} {{q.title}}</a>
+		<a [routerLink]="['/question-editor', q.id]">
+			<i class="fa fa-pencil" aria-hidden="true"></i>
+		</a>
+		<i 	class="fa fa-times-circle"
+		        	type="button"  
+		        	aria-hidden="true"
+		        	(click)="deleteQuestion(q.id);"></i>
+		
 		<ol>
 			<li *ngFor="let a of q.answers">
 				{{a.title}} (ID: {{a.id}})
-				<button type="button" 
-				        (click)="deleteQuestion(q.id);">Delete</button>
 			</li>
 		</ol>
 	</li>
