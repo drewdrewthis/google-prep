@@ -1,9 +1,13 @@
 <header>
 	<h1>Full Question List</h1>
 </header><!-- /header -->
-<ol *ngIf="questions">
-	<li *ngFor="let q of questions">
-		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">#{{q.number}} {{q.title}}</a>
+<ol *ngIf="questions" dnd-sortable-container [sortableData]="questions">
+	<li *ngFor="let q of questions; let i = index" 
+		dnd-sortable 
+		[sortableIndex]="i" 
+		class="question-item"
+		(onDropSuccess) = "resort()">
+		<a [routerLink]="['/questions', q.id]" [routerLinkActive]="['active']" class="">#{{q.number}} {{q.title}} ID: {{q.id}}</a>
 		<a [routerLink]="['/question-editor', q.id]">
 			<i class="fa fa-pencil" aria-hidden="true"></i>
 		</a>

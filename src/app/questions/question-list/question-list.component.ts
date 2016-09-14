@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../questions.service';
 import { Question } from '../question';
 import { ActivatedRoute, Params } from '@angular/router';
+import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +10,8 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: 'question-list.component.html',
   styleUrls: ['question-list.component.css'],
   providers: [
-    QuestionsService
+    QuestionsService,
+    DND_PROVIDERS
   ]
 })
 export class QuestionListComponent implements OnInit {
@@ -35,4 +37,20 @@ export class QuestionListComponent implements OnInit {
     //Remove question from model
     this.questionsService.destroy(id);
   } 
+
+  resort() {
+    var self = this;
+    this.questions.forEach(function(q,i) {
+      q.number = i + 1;
+      self.updateQuestion(q);
+    });
+  }
+
+  updateQuestion(question: Question): void {
+    if (!question.id) { 
+      throw new Error("No question id found");
+    }
+    console.log(question);
+    this.questionsService.update(question);
+  }
 }

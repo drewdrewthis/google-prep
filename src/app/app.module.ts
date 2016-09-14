@@ -18,6 +18,8 @@ import { QuestionsService }  from './questions/questions.service';
 import { QuestionEditorComponent } from './questions/question-editor/question-editor.component';
 import { QuestionNavComponent } from './questions/question-nav/question-nav.component';
 
+import {DND_PROVIDERS, DND_DIRECTIVES} from 'ng2-dnd';
+
 @NgModule({
   imports:      [ 
   	BrowserModule,
@@ -34,6 +36,7 @@ import { QuestionNavComponent } from './questions/question-nav/question-nav.comp
     QuestionEditorComponent,
     QuestionNavComponent,
     QuestionListComponent,
+    DND_DIRECTIVES
   ],
   providers: [
     QuestionsService
